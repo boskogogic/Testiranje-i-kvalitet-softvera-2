@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "44dcb79e-0af1-428b-9777-3a75901f24cc",
+		"name": "Bosko Gogic Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get all test\", function () {\r",
+							"        pm.response.to.have.status(200);\r",
+							"        const responseJson = pm.response.json();\r",
+							"\t    pm.expect(responseJson.length).to.equal(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD FIRST ST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Add first student test\", function () {\r",
+							"\t pm.response.to.have.status(200);\r",
+							"\r",
+							"\tconst responseJson = pm.response.json();\r",
+							"   \r",
+							"   // pm.expect(responseJson.studentId).to.eql('1');\r",
+							"\t//pm.expect(responseJson.studentName).to.be.a('number');\r",
+							"\r",
+							"\tpm.expect(responseJson.studentName).to.eql('Bosko');\r",
+							"\tpm.expect(responseJson.studentName).to.be.a('string');\r",
+							"\r",
+							"\tpm.expect(responseJson.studentEmail).to.eql('bosko@gmail.com');\r",
+							"\tpm.expect(responseJson.studentEmail).to.be.a('string');\r",
+							"\r",
+							"    pm.expect(responseJson.studentBranch).to.eql('BCA');\r",
+							"\tpm.expect(responseJson.studentBranch).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\":1,\r\n    \"studentName\":\"Bosko\",\r\n    \"studentEmail\":\"bosko@gmail.com\",\r\n    \"studentBranch\":\"BCA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD SECOND ST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Add second student test\", function () {\r",
+							"\t pm.response.to.have.status(200);\r",
+							"\r",
+							"\tconst responseJson = pm.response.json();\r",
+							"   // pm.expect(responseJson.studentId).to.eql('2');\r",
+							"\t//pm.expect(responseJson.studentName).to.be.a('number');\r",
+							"\r",
+							"\tpm.expect(responseJson.studentName).to.eql('Dejan');\r",
+							"\tpm.expect(responseJson.studentName).to.be.a('string');\r",
+							"\r",
+							"\tpm.expect(responseJson.studentEmail).to.eql('dejo123');\r",
+							"\tpm.expect(responseJson.studentEmail).to.be.a('string');\r",
+							"    \r",
+							"    pm.expect(responseJson.studentBranch).to.eql('MCA');\r",
+							"\tpm.expect(responseJson.studentBranch).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\":1,\r\n    \"studentName\":\"Dejan\",\r\n    \"studentEmail\":\"dejo123\",\r\n    \"studentBranch\":\"MCA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get by ID\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"\r",
+							"    const responseJson = pm.response.json();\r",
+							"\tpm.expect(responseJson.studentId).to.eql('1');\r",
+							"\tpm.expect(responseJson.studentId).to.be.a('number');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Put test\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"\r",
+							"    const responseJson = pm.response.json();\r",
+							"\r",
+							"    // pm.expect(responseJson.studentId).to.eql('3');\r",
+							"\t//pm.expect(responseJson.studentId).to.be.a('number');\r",
+							"\t\r",
+							"    pm.expect(responseJson.studentName).to.eql('Dejan');\r",
+							"\tpm.expect(responseJson.studentName).to.be.a('string');\r",
+							"    \r",
+							"    pm.expect(responseJson.studentMail).to.eql('dejo123');\r",
+							"\tpm.expect(responseJson.studentMail).to.be.a('string');\r",
+							"      \r",
+							"    pm.expect(responseJson.studentBranch).to.eql('MCA');\r",
+							"\tpm.expect(responseJson.studentBranch).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\":6,\r\n    \"studentName\":\"Goran\",\r\n    \"studentEmail\":\"goge@gmail.com\",\r\n    \"studentBranch\":\"BCA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/student/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get after delete test\", function() {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/student/Bosko",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"Bosko"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get after delete test\", function() {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/student/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
